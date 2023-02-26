@@ -17,7 +17,7 @@ import {
   quizAddMistakeAction,
   quizSelectedQuestionAction,
   quizSetQuestionListAction,
-} from "../../Store/quiz/quiz.action.creators";
+} from "../../store/quiz/quiz.action.creators";
 
 export default function Toggler() {
   const Store = useSelector((state) => state);

@@ -1,10 +1,9 @@
 //Hooks
 import { useEffect, useState } from "react";
-import { useIonAlert } from "@ionic/react";
 //Utilities
 import { getFromLocalStorage } from "../../../../utilis/get.from.localstorage.utilis";
 //Components
-import { IonAlert, IonButton, IonContent } from "@ionic/react";
+import { IonAlert, IonButton } from "@ionic/react";
 
 export default function Displayer() {
   let [mistakes, setMistakes] = useState([]);

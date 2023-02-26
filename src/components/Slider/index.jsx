@@ -1,6 +1,5 @@
 //Components
 import { IonSlides, IonSlide, IonButton } from "@ionic/react";
-import { Link } from "react-router-dom";
 //Styles
 import "./index.css";
 
