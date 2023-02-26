@@ -1,13 +1,28 @@
 //Hooks
 import { useEffect, useState } from "react";
 //Utilities
+import randomString from "../../../../utilis/random.string.utilis";
 import { getFromLocalStorage } from "../../../../utilis/get.from.localstorage.utilis";
-//Components
-import { IonAlert, IonButton } from "@ionic/react";
+// ionic components
+import {
+  IonHeader,
+  IonPage,
+  IonToolbar,
+  IonContent,
+  IonList,
+  IonText,
+  IonRow,
+  IonGrid,
+  useIonToast,
+  IonLabel,
+  IonItemDivider,
+  IonButton, useIonAlert,
+} from "@ionic/react";
+//styles
+import "./index.css";
 
 export default function Displayer() {
   let [mistakes, setMistakes] = useState([]);
-  let [showAlert, setShowAlert] = useState(false);
   let score = 100;
 
   useEffect(() => {
@@ -27,29 +42,84 @@ export default function Displayer() {
     }
   }, []);
 
-  const CreateMessage = () => {
-    let result = [];
-    mistakes.map((mistake) =>
-      result.push(` <div>${mistake.chosenword} is ${mistake.trueAnswer}<div> `)
-    );
-    return result.join("");
-  };
+
+  const [presentAlert] = useIonAlert();
+  const displayScore = score - mistakes.length * 10
+
+  let x = mistakes.map(mistake => {
+    return mistake.chosenword
+  })
+  const yy = 10
+  const xx = mistakes.map(mistake => {
+    return { value: `${mistake.chosenword}` }
+  })
+  const [present] = useIonToast();
+
+
+
 
   return (
-    <div className="score">
-      <h1 className="grade">Score: {score - mistakes.length * 10} </h1>
+    <>
 
-      <IonButton onClick={() => setShowAlert(true)}>
-        See your mistakes
-      </IonButton>
-      <IonAlert
-        isOpen={showAlert}
-        onDidDismiss={() => setShowAlert(false)}
-        header="Alert"
-        subHeader="Important message"
-        message={CreateMessage()}
-        buttons={["OK"]}
-      />
-    </div>
+      <IonPage className="end-page">
+        <IonHeader class="end-page-header ion-no-border">
+          <IonToolbar className="end-page-title">
+            <IonText >
+              <h1>Done!</h1>
+              <p>You can try again tomorrow, Good Luck!</p>
+
+            </IonText>
+          </IonToolbar>
+        </IonHeader>
+        <IonToolbar className="end-page-score">
+          {<IonButton className="BTN" mode="ios" key={randomString()}
+            onClick={() =>
+              presentAlert({
+                header: `${displayScore > 50 ? "Good Job!" : "Try Harder!"}`,
+                message: `Your Score : ${displayScore}`,
+                buttons: ["OK!"],
+                mode:"ios"
+              })
+            }
+          >
+            Your Score!
+          </IonButton>}
+        </IonToolbar>
+
+        <IonItemDivider className="end-page-score">
+          <IonLabel className="end-page-score">
+            Your Mistake! Practice Them
+          </IonLabel>
+        </IonItemDivider>
+        <IonContent className="end-page-content">
+          <IonList inset={true}>
+
+            <IonGrid>
+              <IonRow className="wrong-answer-item">
+                {mistakes.map(mistake => {
+                  return (
+                    <IonButton className="BTN" expand="block" key={randomString()}
+                      onClick={() =>
+                        presentAlert({
+                          header: `${mistake.chosenword}`,
+
+                          message: `${mistake.trueAnswer}`,
+                          buttons: ["Got It!"],
+                          mode:"ios"
+
+                        })
+                      }
+                    >
+                      {mistake.chosenword}
+                    </IonButton>
+                  )
+                })}
+              </IonRow>
+            </IonGrid>
+
+          </IonList>
+        </IonContent>
+      </IonPage>
+    </>
   );
 }

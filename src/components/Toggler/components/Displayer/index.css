@@ -1,0 +1,37 @@
+.end-page {
+  background-color: whitesmoke;
+}
+.end-page-header {
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.end-page-title {
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  text-align: center;
+  font-size: 30px;
+  padding:20px 0;
+}
+.end-page-content {
+  --background: whitesmoke;
+  border-radius: 10px;
+  text-align: center;
+}
+.end-page-score {
+  margin-top: 30px;
+  --background: whitesmoke;
+  font-weight: bold;
+  text-align: center;
+  font-size: 25px;
+}
+.wrong-answer-item{
+  display: flex;
+  justify-content: center;
+    font-size: 18px;
+    text-align: center;
+}
+
+.BTN{
+  --background:#1d0300;
+}

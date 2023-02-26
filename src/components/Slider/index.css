@@ -1,6 +1,14 @@
-.Slide-section {
-    height: 100vh; 
+.slide-section {
+  height: 100vh;
 }
 .section {
-    width: 65vw;
+  width: 65vw;
+}
+.section-button {
+  --background:  #1d0300;
+  --box-shadow: 0 2px 6px 0 rgba(231, 68, 68, 0.582);
+  --ripple-color: deeppink;
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+  font-weight: bold;
 }

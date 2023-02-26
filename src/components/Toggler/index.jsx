@@ -7,8 +7,6 @@ import { getFromLocalStorage } from "../../utilis/get.from.localstorage.utilis";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux/es/exports";
 import { useDispatch } from "react-redux/es/exports";
-//css
-import "./index.css";
 //components
 import Question from "./components/Question";
 import Displayer from "./components/Displayer";
@@ -17,7 +15,8 @@ import {
   quizAddMistakeAction,
   quizSelectedQuestionAction,
   quizSetQuestionListAction,
-} from "../../store/quiz/quiz.action.creators";
+} from "../../Store/quiz/quiz.action.creators";
+import { IonPage } from "@ionic/react";
 
 export default function Toggler() {
   const Store = useSelector((state) => state);
@@ -71,11 +70,13 @@ export default function Toggler() {
   return (
     <>
       {chosenIndex < 10 ? (
-        <Question
-          key={randomString()}
-          handler={HandleAnswer}
-          questionCount={chosenIndex + 1}
-        />
+        <IonPage>
+          <Question
+            key={randomString()}
+            handler={HandleAnswer}
+            questionCount={chosenIndex + 1}
+          />
+        </IonPage>
       ) : (
         <Displayer />
       )}

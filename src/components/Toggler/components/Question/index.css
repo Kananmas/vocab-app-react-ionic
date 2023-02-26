@@ -1,0 +1,64 @@
+.question-text {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri !important;
+}
+.question-header {
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+.header-badge {
+  margin: 15px;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 20px;
+}
+.footer-wrapper {
+  border-top-left-radius: 75px;
+  border-top-right-radius: 75px;
+  background-color: #ffe4e1;
+  padding-top: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri !important;
+}
+.footer {
+  border-top-left-radius: 75px;
+  border-top-right-radius: 75px;
+  background-color: #1d0300;
+  padding-top: 20px;
+}
+.footer-toolbar {
+  border-top-left-radius: 75px;
+  border-top-right-radius: 75px;
+  padding: 20px 30px;
+}
+.footer::before {
+  display: none;
+}
+.footer-timer {
+  color: #1d0300;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.footer-text {
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.option-text {
+  border-top-left-radius: 75px;
+  border-top-right-radius: 75px;
+  font-weight: bold;
+}
+.options {
+  margin: 10px auto;
+  border-radius: 20px;
+  padding: 0 10px;
+  text-align: center;
+  font-size: 18px;
+   font-family: "Gill Sans", "Gill Sans MT", Calibri !important;
+}
+.options:last-child {
+  margin-bottom: 50px;
+}

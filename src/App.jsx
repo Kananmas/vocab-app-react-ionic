@@ -5,7 +5,7 @@ import { IonReactRouter } from "@ionic/react-router";
 import Toggler from "./components/Toggler";
 import Slider from "./components/Slider";
 //Store
-import { store } from "./store/store";
+import { store } from "./Store/store";
 //react-redux
 import { Provider } from "react-redux";
 
